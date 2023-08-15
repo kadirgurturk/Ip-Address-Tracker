@@ -1,0 +1,9 @@
+@use "./components/header";
+@use "./variable" as v;
+
+*{
+    font-family: v.$primary-font;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
