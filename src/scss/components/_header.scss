@@ -1,34 +1,69 @@
 @use "../variable" as v;
+@use "../mixin" as m;
+
 
 .header{
+    position: relative;
     width: 100vw;
-    height: 220px;
+    height: 260px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    h2{
-        color: v.$white;
-        font-size: 32px;
-        font-weight: 700;
-        word-spacing: 4px;
-    }
-
-    .header-input{
-
-        input{
-            outline: none;
-            border: none;
-            width: 380px;
-            height: 32px;
-            border-radius: 5px;
-            padding-left: 15px;
+    .header-container{
+        position: absolute;
+        height: 300px;
+        left: 50%;
+        top: 65%;
+        transform: translate(-50%, -50%);
+        @include m.flex_column;
+        justify-content:space-between;
+        align-items: center;
+        
+        h2{
+            color: v.$white;
+            font-size: 32px;
+            font-weight: 700;
+            word-spacing: 4px;
         }
 
-        button{
+        .header-input{
+            position: relative;
+            width: 380px;
+            input{
+                outline: none;
+                border: none;
+                width: 380px;
+                height: 36px;
+                border-radius: 15px;
+                padding-left: 15px;
+            }
+            
+            button{
+                position: absolute;
+                height: 36px;
+                width: 36px;
+                border-radius: 0 15px 15px 0;
+                top: 0;
+                right: 0;
+                border: none;
+                outline: none;
+                background-color: black;
+                @include m.center;
+                &:hover{
+                    background-color: rgba(0, 0, 0, 0.838);
+                    cursor: pointer;
+                }
+            }
             
         }
-        
-    }
+        .header-info{
+            width: 720px;
+            height: 130px;
+            border-radius: 25px;
+            background-color:white;
+            border: 1px solid black;
+        }
+        }
 
 }
