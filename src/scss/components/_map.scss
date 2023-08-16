@@ -1,0 +1,8 @@
+@use "../variable" as v;
+@use "../mixin" as m;
+
+.map{
+    width: 100vw;
+    height: 360px;
+    z-index: 1;
+}

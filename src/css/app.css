@@ -9,6 +9,7 @@
   background-size: cover;
 }
 .header .header-container {
+  z-index: 999;
   position: absolute;
   height: 300px;
   left: 50%;
@@ -27,20 +28,20 @@
 }
 .header .header-container .header-input {
   position: relative;
-  width: 380px;
+  width: 420px;
 }
 .header .header-container .header-input input {
   outline: none;
   border: none;
-  width: 380px;
-  height: 36px;
+  width: 420px;
+  height: 42px;
   border-radius: 15px;
   padding-left: 15px;
 }
 .header .header-container .header-input button {
   position: absolute;
-  height: 36px;
-  width: 36px;
+  height: 42px;
+  width: 42px;
   border-radius: 0 15px 15px 0;
   top: 0;
   right: 0;
@@ -62,6 +63,36 @@
   border-radius: 25px;
   background-color: white;
   border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.header .header-container .header-info .header-info-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-left: 1px solid rgb(208, 207, 207);
+  padding: 10px;
+  height: 65%;
+  width: 25%;
+}
+.header .header-container .header-info .header-info-items .info-header {
+  color: #6b7481;
+  font-size: 16px;
+  font-weight: 500;
+}
+.header .header-container .header-info .header-info-items .info-content {
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.map {
+  width: 100vw;
+  height: 360px;
+  z-index: 1;
 }
 
 * {
