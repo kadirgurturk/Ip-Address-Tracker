@@ -4,10 +4,10 @@ import "leaflet/dist/leaflet.css"
 import icon from "./Icon"
 
 
-export default function Map() {
+export default function Map({coordinate}) {
   return (
     <div className='map'>
-       <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}  style={{ height: "65vh", width: "100vw",zIndex:"2" }} >
+       <MapContainer center={[coordinate.x, coordinate.y]} zoom={13} scrollWheelZoom={true}  style={{ height: "65vh", width: "100vw",zIndex:"2" }} >
           <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

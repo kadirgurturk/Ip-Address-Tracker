@@ -3,7 +3,7 @@ import logo1 from "../assets/pattern-bg-desktop.png"
 import arrow from "../assets/arrow.svg";
 import axios from 'axios';
 
-export default function Header() {
+export default function Header({coordinate, setCoordinate}) {
     const [val, setVal]= useState();
     const [info, setInfo] = useState();
     const checkIpAddress =
@@ -19,13 +19,17 @@ export default function Header() {
               );
               const data = response.data;
               setInfo(data);
+              setCoordinate({
+                x:info.location.lat,
+                y:info?.location.lng
+              })
             } catch (error) {
               console.error(error);
             }
           };
       
           getInitialData();
-      },)
+      },[])
     
 
       const handleClick = async () => {
@@ -41,12 +45,16 @@ export default function Header() {
           );
           const data = response.data;
           setInfo(data);
+          setCoordinate({
+                x:info.location.lat,
+                y:info?.location.lng
+              })
         } catch (error) {
           console.error(error);
         }
       };
 
-      console.log(info);
+      console.log(`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_GEO_API_KEY}&ipAddress=8.8.8.8`);
     
     
 
@@ -62,19 +70,19 @@ export default function Header() {
             <div className="header-info">
                 <div className="address header-info-items"> 
                     <p className="info-header">IP ADDRESS</p>
-                    <p className="info-content"> </p>
+                    <p className="info-content">  {info?.ip} </p>
                 </div>
                 <div className="location header-info-items">
                     <p className="info-header">LOCATION</p>
-                     <p className="info-content">Çanakkale, Çanakkale Merkez/Çanakkale </p>
+                     <p className="info-content"> {info?.locationinfo.city}, {info?.location.region} </p>
                 </div>
                 <div className="timezone header-info-items">
                     <p className="info-header">TIMEZONE</p>
-                    <p className="info-content">URC-7.00</p>
+                    <p className="info-content">UTC {info?.location.timezone}</p>
                 </div>
                 <div className="ısp header-info-items">     
                     <p className="info-header">ISP</p>
-                    <p className="info-content">37.38605</p>
+                    <p className="info-content"> {info?.isp}</p>
                 </div>
             </div>
         </div>
